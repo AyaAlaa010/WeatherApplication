@@ -91,7 +91,7 @@ class StreetDateClass(var context: Context) {
 
 ///tyt
     fun getLocation():String {
-
+//
 //default the current
         val currentsharedPreferences: SharedPreferences = context.getSharedPreferences("arf",Context.MODE_PRIVATE)
          val latitudeLocation = currentsharedPreferences.getFloat("latt",0.0f)

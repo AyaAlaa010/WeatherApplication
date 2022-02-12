@@ -89,7 +89,6 @@ class StreetDateClass(var context: Context) {
 //
 
 
-///tyt
     fun getLocation():String {
 //
 //default the current

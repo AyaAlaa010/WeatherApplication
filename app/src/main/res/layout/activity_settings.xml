@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.mainui.SettingsActivity"
+        android:background="@drawable/background2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/card_temp"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_20sdp"
+                android:backgroundTint="#31ECDA"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tempreture"
+                    android:layout_gravity="center"
+                    android:id="@+id/tv_tempreture"
+                    android:textSize="@dimen/_15sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="#fff"
+
+                    />
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:cardCornerRadius="@dimen/_10sdp"
+                android:backgroundTint="#80CFEFED"
+
+                app:layout_constraintTop_toBottomOf="@+id/card_temp">
+                <RadioGroup
+                    android:id="@+id/radioGroupp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card_temp"
+                    >
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:onClick="btnClicked"
+
+                        android:text="celsius"
+                        android:id="@+id/togge_degree_celsiuss"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_14sdp"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        app:layout_constraintStart_toEndOf="@id/togge_degree_celsiuss"
+                        android:text="kelvin"
+                        android:onClick="btnClicked"
+
+                        android:id="@+id/toggel_Kelvinn"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_tempreture"
+
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_14sdp"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        app:layout_constraintStart_toEndOf="@id/toggel_Kelvinn"
+                        android:text="fahrenheit"
+                        android:onClick="btnClicked"
+
+                        android:id="@+id/toggel_Fahrenheitt"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_tempreture"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="#fff"/>
+                </RadioGroup>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

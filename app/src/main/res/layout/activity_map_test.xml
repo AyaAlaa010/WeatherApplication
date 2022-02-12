@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.maps.MapTest">
+
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            map:cardCornerRadius="10dp"
+            map:layout_constraintEnd_toStartOf="parent"
+            map:layout_constraintTop_toTopOf="parent"
+            android:elevation="10dp"
+            android:id="@+id/relLayout1">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="25dp"
+                android:id="@+id/ic_magnify"
+                android:layout_centerVertical="true"
+                map:layout_constraintTop_toTopOf="parent"
+                map:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:src="@drawable/ic_baseline_search_24" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/ic_magnify"
+                android:layout_centerVertical="true"
+                map:layout_constraintStart_toEndOf="@id/ic_magnify"
+                map:layout_constraintTop_toTopOf="parent"
+                map:layout_constraintEnd_toEndOf="parent"
+                android:textSize="15sp"
+                android:textColor="#000"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:id="@+id/input_search"
+                android:background="@null"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:hint="Enter Address, City or Zip Code"
+                android:imeOptions="actionSearch" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+<com.google.android.material.button.MaterialButton
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/bt_map_confirm"
+    map:layout_constraintStart_toStartOf="parent"
+    map:layout_constraintBottom_toBottomOf="parent"
+    android:layout_margin="@dimen/_15sdp"
+    map:cornerRadius="@dimen/_10sdp"
+    android:elevation="@dimen/_10sdp"
+    android:text="@string/confirm"
+/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

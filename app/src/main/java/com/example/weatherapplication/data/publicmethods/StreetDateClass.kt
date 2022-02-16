@@ -1,5 +1,6 @@
 package com.example.weatherapplication.data.publicmethods
 
+import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.location.Geocoder
@@ -9,146 +10,93 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class StreetDateClass(var context: Context) {
+    // used for all stored data in shared preferenced
+    val sharedPreferences: SharedPreferences = context.getSharedPreferences("weather", 0)
 
+    //celsuis or kelvin or farhentaire
+    fun setTemperature(): Int {
+        // val tempsharedPreferences:SharedPreferences = context.getSharedPreferences("temp", 0)
 
-
-
-    fun setTemperature():Int {
-        val tempsharedPreferences:SharedPreferences = context.getSharedPreferences("temp", 0)
-
-        var value = tempsharedPreferences.getInt("temp",0)
-        if(value==1){
+        var value = sharedPreferences.getInt("temp", 1)
+        if (value == 1) {
             return 1
-        }
-        else if(value==2){
+        } else if (value == 2) {
 
             return 2
-        }
-        else if(value==3){
+        } else if (value == 3) {
 
             return 3
 
-        }
-        else
+        } else
             return 1
 
 
     }
+    //m/s or m/h
+    fun setWindSpeed(): Int {
 
+        //val sharedPreferencesSpeed:SharedPreferences = context.getSharedPreferences("Speed", 0)
 
-
-    fun setWindSpeed():Int {
-
-        val sharedPreferencesSpeed:SharedPreferences = context.getSharedPreferences("Speed", 0)
-
-        var value = sharedPreferencesSpeed.getInt("Speed",0)
-        if(value==1){
+        var value = sharedPreferences.getInt("Speed", 1)
+        if (value == 1) {
             return 1
-        }
-        else if(value==2){
+        } else if (value == 2) {
 
             return 2
-        }
-       else{
+        } else {
 
-           return 1
-       }
+            return 1
+        }
 
 
     }
 
+    // action for map or gps
+    fun getLocation(): String {
+        //default the current
+        val latitudeLocation = sharedPreferences.getString("latCurrent", "0")
+        val langtitudeLocation = sharedPreferences.getString("lonCurrent", "0")
+
+
+        var locationType: String = "0"
+
+
+        // get the valuse of search location im map activity
+        var searchLat = sharedPreferences.getString("latMap", latitudeLocation)
+        var searchLon = sharedPreferences.getString("lonMap", langtitudeLocation)
+
+        // choose map or gps
+        val locationValue = sharedPreferences!!.getInt("typeLocation", 2)
 
 
 
 
-//    fun setUnites():String {
-//         var unitSet:String="standard"
-//
-//        val shared: SharedPreferences = context.getSharedPreferences("cc",Context.MODE_PRIVATE)
-//        var value = shared.getInt("genderSP",0)
-//        if(value==1){
-//            unitSet="standard"
-//
-//        }
-//        else if(value==2){
-//
-//
-//            unitSet="metric"
-//
-//        }
-//        else if(value==3){
-//
-//            unitSet="imperial"
-//
-//
-//        }
-//
-//        return unitSet
-//
-//    }
-//
+        if (locationValue == 1) {
+            locationType = searchLat + "+" + searchLon
+        } else if (locationValue == 2) {
 
 
-    fun getLocation():String {
-//
-//default the current
-        val currentsharedPreferences: SharedPreferences = context.getSharedPreferences("arf",Context.MODE_PRIVATE)
-         val latitudeLocation = currentsharedPreferences.getFloat("latt",0.0f)
-         val langtitudeLocation = currentsharedPreferences.getFloat("lonn",0.0f)
-
-
-
-        var locationType:String=latitudeLocation.toString()+"+"+langtitudeLocation.toString()
-
-
-
-        // get the valuse of search location
-        val sharedPreferences: SharedPreferences = context.getSharedPreferences("MapLocation", Context.MODE_PRIVATE)
-
-        var searchLat = sharedPreferences.getFloat("latMap",latitudeLocation)
-        var searchLon=sharedPreferences.getFloat("lonMap",langtitudeLocation)
-
-        // key location  for choose
-
-        val    sharedPreferencesLocation : SharedPreferences = context.getSharedPreferences("location", 0)
-
-        val locationValue = sharedPreferencesLocation!!.getInt("type", 0)
-
-
-
-
-        if(locationValue==1){
-            locationType=searchLat.toString()+"+"+searchLon.toString()
-        }
-        else if(locationValue==2){
-
-
-            locationType=latitudeLocation.toString()+"+"+langtitudeLocation.toString()
+            locationType = latitudeLocation + "+" + langtitudeLocation
         }
 
         return locationType
 
     }
 
-fun mapDifferentActivity():Int{
+    //choose between go to favourite or main (current fragment)
+    fun mapDifferentActivity(): Int {
 
-    val    sharedPreferencesLocation : SharedPreferences = context.getSharedPreferences("location", 0)
-
-    val locationValue = sharedPreferencesLocation!!.getInt("type", 0)
+        val locationValue = sharedPreferences!!.getInt("typeLocation", 0)
 
 
-    if(locationValue==1){
+        if (locationValue == 1) {
+            return 1
+        } else if (locationValue == 2) {
+            return 2
+
+        }
         return 1
     }
-    else if(locationValue==2){
-        return 2
-
-    }
-
-
-        return 1
-
-}
 
 
     fun getStreetName(lat: Double, lon: Double): String {
@@ -164,7 +112,7 @@ fun mapDifferentActivity():Int{
     }
 
 
-     fun getDateTime(s: String): String? {
+    fun getDateTime(s: String): String? {
         //dd/MM/yyyy hh:mm:ss
         try {
             val sdf = SimpleDateFormat("dd/MM/yyyy")
@@ -175,8 +123,15 @@ fun mapDifferentActivity():Int{
             return e.toString()
         }
 
-
     }
 
+    fun getLanguage(): String {
 
+        val sharedPreferences: SharedPreferences = context.getSharedPreferences("Settings", 0)
+        val language = sharedPreferences.getString("My_Lang", "")
+
+        return language!!
+
+
+    }
 }

@@ -5,7 +5,7 @@
 
     <item android:id="@+id/alert"
 
-        android:title="alert"
+        android:title="@string/alert"
         android:icon="@drawable/alarm"
         android:tooltipText="#fff"
 
@@ -13,9 +13,14 @@
 
 
     <item android:id="@+id/settings"
-        android:title="settings"
+        android:title="@string/settings"
         android:icon="@drawable/setting"
 
         />
 
+    <item android:id="@+id/languages"
+        android:title="@string/language"
+        android:icon="@drawable/language3"
+
+        />
 </menu>

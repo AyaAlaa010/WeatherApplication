@@ -1,6 +1,7 @@
 package com.example.weatherapplication.ui.nextdays
 
 import android.content.Context
+import android.provider.Settings.Global.getString
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -45,9 +46,9 @@ class NextAdapter(val currentDailyList: ArrayList<Daily>, val context: Context) 
         Glide.with(context).load(link).into(holder.itemBinding.imgIcon)
         //
 
-        holder.itemBinding.currentPressure.setText("pressure: "+daily.pressure?.toString())
-        holder.itemBinding.currentClouds.setText("clouds: "+daily.clouds?.toString()+"%")
-        holder.itemBinding.currentHumedity.setText("humidity : "+daily.humidity?.toString()+"%")
+        holder.itemBinding.currentPressure.setText(context.getString(R.string.pressure)+" : "+daily.pressure?.toString())
+        holder.itemBinding.currentClouds.setText(context.getString(R.string.clouds)+" : "+daily.clouds?.toString()+"%")
+        holder.itemBinding.currentHumedity.setText(context.getString(R.string.humidity)+" : "+daily.humidity?.toString()+"%")
         holder.itemBinding.statusCurrent.setText(daily.weather.get(0).description.toString())
         holder.itemBinding.nextDate.text= getDateTime( daily.dt.toString())
 
@@ -87,9 +88,9 @@ class NextAdapter(val currentDailyList: ArrayList<Daily>, val context: Context) 
 
         if (StreetDateClass(holder.itemBinding.currentClouds.context).setWindSpeed() == 1) {//c
             // mile= sec*2.236936
-            val number:Double=String.format("%.2f",daily.windSpeed).toDouble()
+            //val number:Double=String.format("%.2f",daily.windSpeed).toDouble()
 
-            holder.itemBinding.currentWind.setText("wind: "+number.toString()+" m/s")
+            holder.itemBinding.currentWind.setText(context.getString(R.string.wind_speed)+" : "+daily.windSpeed?.toInt().toString()+ context.getString(R.string.meter_sec))
 
 
 
@@ -97,8 +98,8 @@ class NextAdapter(val currentDailyList: ArrayList<Daily>, val context: Context) 
         } else if (StreetDateClass(holder.itemBinding.currentClouds.context).setWindSpeed() == 2) {//k
 
             val degree= daily.windSpeed?.times(2.236936)
-            val number:Double=String.format("%.2f",degree).toDouble()
-            holder.itemBinding.currentWind.setText("wind : "+number.toString()+" m/h")
+                // val number:Double=String.format("%.2f",degree).toDouble()
+            holder.itemBinding.currentWind.setText(context.getString(R.string.wind_speed)+" : "+degree?.toInt().toString()+ context.getString(R.string.mil_hour))
 
 
         }

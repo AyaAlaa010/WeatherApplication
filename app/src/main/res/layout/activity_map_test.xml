@@ -59,7 +59,7 @@
                 android:id="@+id/input_search"
                 android:background="@null"
                 android:layout_marginStart="@dimen/_40sdp"
-                android:hint="Enter Address, City or Zip Code"
+                android:hint="@string/enter_address_city_or_zip_code"
                 android:imeOptions="actionSearch" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

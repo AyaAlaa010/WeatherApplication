@@ -20,15 +20,10 @@ class CurrentAdapter(val currentHourList: ArrayList<Hourly>, val context: Contex
     RecyclerView.Adapter<CurrentAdapter.ViewHolder>() {
 
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
 
-        return ViewHolder(
-            DataBindingUtil.inflate(LayoutInflater.from(parent.context),
-                R.layout.item_current_hours,
-                parent,
-                false))
+        return ViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_current_hours, parent, false))
 
     }
 
@@ -36,57 +31,51 @@ class CurrentAdapter(val currentHourList: ArrayList<Hourly>, val context: Contex
         val hourly: Hourly = currentHourList.get(position)
         var link = "http://openweathermap.org/img/wn/" + (hourly.weather.get(0).icon) + "@2x.png"
         Glide.with(context).load(link).into(holder.itemBinding.itemImgHour)
-       // holder.itemBinding.itemDegreeHour.setText(hourly.temp.toString())
+        // holder.itemBinding.itemDegreeHour.setText(hourly.temp.toString())
 //
         if (StreetDateClass(holder.itemBinding.itemDegreeHour.context).setTemperature() == 1) {//c
             // K - 273.15
-            val degree= hourly.temp?.minus(273.15)
-            val number:Double=String.format("%.2f", degree).toDouble()
+            val degree = hourly.temp?.minus(273.15)
+            //  val number:Double=String.format("%.2f", degree).toDouble()
 
-            holder.itemBinding.itemDegreeHour.setText(number.toString() + " C")
+            holder.itemBinding.itemDegreeHour.setText(degree?.toInt().toString() + " C")
 
 
         } else if (StreetDateClass(holder.itemBinding.itemDegreeHour.context).setTemperature() == 2) {//k
-            val number:Double=String.format("%.2f", hourly.temp).toDouble()
+            // val number:Double=String.format("%.2f", hourly.temp).toDouble()
 
-            holder.itemBinding.itemDegreeHour.setText( number.toString() + " K")
+            holder.itemBinding.itemDegreeHour.setText(hourly.temp?.toInt().toString() + " K")
 
 
         } else if (StreetDateClass(holder.itemBinding.itemDegreeHour.context).setTemperature() == 3) {//f
 
             //°F = (K − 273.15) × 9/5 + 32
-            val degree=(((hourly.temp)?.minus(273.15))?.times(9/3)?.plus(32))
-            val number:Double=String.format("%.2f", degree).toDouble()
+            val degree = (((hourly.temp)?.minus(273.15))?.times(9 / 3)?.plus(32))
+            // val number:Double=String.format("%.2f", degree).toDouble()
 
-            holder.itemBinding.itemDegreeHour.setText( number.toString() + " F")
+            holder.itemBinding.itemDegreeHour.setText(degree?.toInt().toString() + " F")
 
 
         }
-
-        //unites
-
-
-
-
 
 
 
 //hour format
         try {
-            val sdf = SimpleDateFormat("hh")
+            val sdf = SimpleDateFormat("hh aaa")
             val netDate = Date(((hourly.dt).toString()).toLong() * 1000)
-            Log.i("hour", "observeViewModel: "+sdf.format(netDate))
+            Log.i("hour", "observeViewModel: " + sdf.format(netDate))
             holder.itemBinding.itemHourCurrent.text = sdf.format(netDate)
 
         } catch (e: Exception) {
-            Log.i("error", "observeViewModel: "+ e.toString())
+            Log.i("error", "observeViewModel: " + e.toString())
         }
 
 
     }
 
     override fun getItemCount(): Int {
-       return currentHourList.size
+        return currentHourList.size
     }
 
 

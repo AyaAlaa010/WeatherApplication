@@ -93,10 +93,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Clouds"
+                    android:text="@string/clouds"
                     android:id="@+id/current_clouds"
                     app:layout_constraintTop_toBottomOf="@+id/current_temp_max"
-                    app:layout_constraintStart_toEndOf="@id/img_icon"
+                    app:layout_constraintStart_toEndOf="@id/current_wind"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginStart="@dimen/_20sdp"
 
@@ -127,7 +127,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/current_humedity"
                     android:layout_margin="@dimen/_10sdp"
 
-                    android:layout_marginEnd="@dimen/_20sdp"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textSize="@dimen/_15sdp"
                     android:textColor="#fff"
@@ -139,10 +138,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:layout_marginStart="@dimen/_35sdp"
                     android:text="@string/pressure"
                     android:textColor="#fff"
                     android:textSize="@dimen/_15sdp"
+                    android:layout_margin="@dimen/_10sdp"
+
                     app:layout_constraintStart_toEndOf="@id/current_wind"
                     app:layout_constraintTop_toBottomOf="@+id/current_clouds"
                     app:layout_constraintEnd_toEndOf="parent"

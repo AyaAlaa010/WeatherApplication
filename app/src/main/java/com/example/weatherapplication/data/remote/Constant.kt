@@ -1,12 +1,9 @@
 package com.example.weatherapplication.constant
 
 
+const val API_KEY = "2cb7d42668fedcc1f3e7fc460e66ee7e"
+const val REQUEST_CODE_LOCATION_PERMISSION = 0
 
-  const  val API_KEY="70368513d67cf9b30e258e58a09c5983"
-const val REQUEST_CODE_LOCATION_PERMISSION=0
-
-
-
-//http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={API key}
-//http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=70368513d67cf9b30e258e58a09c5983&lang=ar&exclude=current
-//http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=70368513d67cf9b30e258e58a09c5983&cnt=10
+const val ERROR_DIALOG_REQUEST = 9001
+const val PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 9002
+const val PERMISSIONS_REQUEST_ENABLE_GPS = 9003

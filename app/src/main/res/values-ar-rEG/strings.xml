@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Weather</string>
+    <string name="app_name">الطقس</string>
     <string name="nav_open">Open</string>
     <string name="nav_close">close</string>
     <string name="address">العنوان</string>
@@ -15,9 +15,9 @@
     <string name="language">اللغه</string>
     <string name="arabic">العربيه</string>
     <string name="tempreture">درجه الحراره</string>
-    <string name="celsius">celsius</string>
-    <string name="kelvin">kelvin</string>
-    <string name="fahrenheit">fahrenheit</string>
+    <string name="celsius">سليسيس</string>
+    <string name="kelvin">كيلفن</string>
+    <string name="fahrenheit">فهرنهيت</string>
     <string name="mile_hour">ميلي ساعه</string>
     <string name="notifications">الاشعارات</string>
     <string name="enable">تمكين</string>
@@ -25,4 +25,39 @@
     <string name="wind_speed">سرعه الرياح</string>
     <string name="location">الموقع</string>
     <string name="english">الانجليزيه</string>
+    <string name="humidity">الرطوبه</string>
+    <string name="windspeed">سرعه الرياح</string>
+    <string name="pressure">الضغط</string>
+    <string name="tempe_min">درجه الحراره الصغري</string>
+    <string name="temp_max">درجه الحراره الكبري</string>
+    <string name="favourite_location">المكان المفضل</string>
+    <string name="title_activity_maps">خريطه</string>
+    <string name="title_activity_maps_fav">خريطه مفضله</string>
+    <string name="confirm">تأكيد</string>
+    <string name="meter_sec">متر/ثانيه</string>
+    <string name="mil_hour">ملي/ساعه</string>
+    <string name="on">تمكين</string>
+    <string name="off">الغاء</string>
+    <string name="c">C</string>
+    <string name="k">K</string>
+    <string name="f">F</string>
+    <string name="enter_address_city_or_zip_code">"ادخل العنوان "</string>
+    <string name="clouds">السحب</string>
+    <string name="humidety">الرطوبه</string>
+    <string name="cloud">السحب</string>
+    <string name="uvi">الاشعه فوق البنفسجيه</string>
+    <string name="message_delete">هل انت متأكد انك تريد مسح هذا الموقع؟</string>
+    <string name="favourite_message">"هل تريد فتح نظام تحديد الموقع لتسطيع اضافة اماكنك المفضله؟ "</string>
+    <string name="gps_message">التطبيق يحتاج الي تفعيل نظام تحديد الموقع ,هل تريد فعل ذالك؟</string>
+    <string name="yes">نعم</string>
+    <string name="Cancel">الغاء</string>
+    <string name="Delete">حذف</string>
+    <string name="ok">موافق</string>
+    <string name="currentday">اليوم الحالي</string>
+    <string name="nextday">الأيام التاليه</string>
+    <string name="favourite">"المفضل "</string>
+    <string name="alert">المنبه</string>
+    <string name="settings">الأعدادات</string>
+    <string name="chooselanguage">اختار اللغه</string>
+    <string name="networkmessage">من فضلك اتصل بالانترنت و حاول مجددا</string>
 </resources>

@@ -21,7 +21,6 @@
     <string name="notifications">notifications</string>
     <string name="enable">Enable</string>
     <string name="disable">Disable</string>
-    <string name="location">Location</string>
     <string name="english">English</string>
     <string name="humidity">Humidity</string>
     <string name="windspeed">Wind speed</string>
@@ -31,18 +30,45 @@
     <string name="favourite_location">favourite location</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_maps_fav">MapsFav</string>
-    <string name="title_activity_mapp">Mapp</string>
-    <string name="title_activity_map_test">MapTest</string>
-    <string name="title_activity_map2">Map2</string>
+    <string name="title_activity_mapp" translatable="false">Mapp</string>
+    <string name="title_activity_map_test" translatable="false">MapTest</string>
+    <string name="title_activity_map2" translatable="false">Map2</string>
     <string name="confirm">Confirm</string>
     <string name="map">Map</string>
     <string name="gps">GPS</string>
-    <string name="standard">Standard</string>
-    <string name="unites">Unites</string>
-    <string name="metric">Metric</string>
+    <string name="standard" translatable="false">Standard</string>
+    <string name="unites" translatable="false">Unites</string>
+    <string name="metric" translatable="false">Metric</string>
     <string name="wind_speed">Wind Speed</string>
-    <string name="meter_sec">Meter/Sec</string>
-    <string name="mil_hour">Mile/Hour</string>
+    <string name="meter_sec">m/s</string>
+    <string name="mil_hour">m/h</string>
     <string name="on">ON</string>
     <string name="off">OFF</string>
+    <string name="title_activity_favourite_maps" translatable="false">FavouriteMaps</string>
+    <string name="c">C</string>
+    <string name="k">K</string>
+    <string name="f">" F"</string>
+    <string name="enter_address_city_or_zip_code">Enter Address, City or Zip Code</string>
+    <string name="location">Location</string>
+    <string name="clouds">Clouds</string>
+    <string name="humidety">Humidity:</string>
+    <string name="cloud">Clouds:</string>
+    <string name="uvi">"uvi: "</string>
+    <string name="message_delete">are you sure to delete this location ?</string>
+    <string name="favourite_message">"Do you want to open gps to can add favourite places? "</string>
+    <string name="gps_message">This application requires GPS to work properly, do you want to enable it?</string>
+    <string name="yes">Yes</string>
+    <string name="Cancel">cancel</string>
+    <string name="Delete">delete</string>
+    <string name="ok">ok</string>
+    <string name="currentday">Current Day</string>
+    <string name="nextday">"Next Days "</string>
+    <string name="المفضله" translatable="false">"Favourite "</string>
+    <string name="favourite">Favourite</string>
+    <string name="alert">alert</string>
+    <string name="settings">settings</string>
+    <string name="chooselanguage">Choose Language</string>
+    <string name="networkmessage">please connect to network then try again</string>
+    <string name="chooselanguageDialog">please choose your language</string>
+    <string name="settinglocationdialog">please go to setting and specify your location</string>
 </resources>

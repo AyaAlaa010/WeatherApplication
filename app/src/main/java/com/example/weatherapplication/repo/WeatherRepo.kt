@@ -22,23 +22,21 @@ import kotlinx.coroutines.withContext
 class WeatherRepo() {
     private val TAG = "WeatherRepo"
     val weatherLiveData = MutableLiveData<AllResponse>()
-    fun getWeather(lat: Double,lon:Double,exclude:String,lang:String,unites:String) {
-
-
+    fun getWeather(lat: Double, lon: Double, exclude: String, lang: String, unites: String) {
 
 
         GlobalScope.launch(Dispatchers.IO) {
-            val response = RetrofitClient.getApiService().getAllWeather(lat,lon,exclude,lang,unites,API_KEY)
-            withContext(Dispatchers.Main){
+            val response = RetrofitClient.getApiService()
+                .getAllWeather(lat, lon, exclude, lang, unites, API_KEY)
+            withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     response.body()?.let {
                         Log.d(TAG, "onResponse: ${it}")
-                        Log.i(TAG, "getWeather: "+response.body().toString())
+                        Log.i(TAG, "getWeather: " + response.body().toString())
                         weatherLiveData.value = it
                     }
-                }
-                else{
-                    Log.i(TAG, "getWeather: "+response.errorBody())
+                } else {
+                    Log.i(TAG, "getWeather: " + response.errorBody())
 
 
                 }

@@ -1,7 +1,9 @@
 package com.example.weatherapplication.ui.currentui
 
 import android.Manifest
+import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.location.Location
@@ -22,9 +24,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.example.Current
 import com.example.weatherapplication.R
+import com.example.weatherapplication.data.local.current.CurrentDataBase
+import com.example.weatherapplication.data.local.current.CurrentEntity
+import com.example.weatherapplication.data.local.favouriteroom.FavouriteDataBase
+import com.example.weatherapplication.data.local.favouriteroom.FavouriteEntity
 import com.example.weatherapplication.data.publicmethods.StreetDateClass
 import com.example.weatherapplication.databinding.FragmentCurrentBinding
+import com.example.weatherapplication.internetconnection.InternetHandeling
+import com.example.weatherapplication.ui.mainui.MainActivity
 import com.example.weatherapplication.ui.mainui.Settings
 import com.example.weatherapplication.viewmodels.HourlyViewModel
 import com.example.weatherapplication.viewmodels.WeatherViewModel
@@ -41,45 +50,69 @@ class CurrentFragment : Fragment() {
     private lateinit var hourlyViewModel: HourlyViewModel
     lateinit var mfusedLocationProviderclient: FusedLocationProviderClient
     val TAG = "current"
-
+    var language = "en"
+    var currentEntity = CurrentEntity()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        activity?.let {
-            viewModel = ViewModelProvider(it).get(WeatherViewModel::class.java)
-            hourlyViewModel = ViewModelProvider(it).get(HourlyViewModel::class.java)
-        }
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_current, container, false)
+
+
         return binding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
+        if (InternetHandeling.checkForInternet(requireContext())) {
+
+            Toast.makeText(requireContext(), "Connected", Toast.LENGTH_SHORT).show()
+            initOnlineData()
+
+        } else {
+            Toast.makeText(requireContext(), "Disconnected", Toast.LENGTH_SHORT).show()
+
+            initoflineData(currentEntity)
+            //offlineHour()
+
+        }
+
+
+    }
+
+    fun initOnlineData() {
+
+        activity?.let {
+            viewModel = ViewModelProvider(it).get(WeatherViewModel::class.java)
+            hourlyViewModel = ViewModelProvider(it).get(HourlyViewModel::class.java)
+        }
+
+
+        if (StreetDateClass(requireContext()).getLanguage().equals("en")) {
+            language = "en"
+
+        } else if (StreetDateClass(requireContext()).getLanguage().equals("ar")) {
+            language = "ar"
+
+        }
+
         var storedLocation = StreetDateClass(requireContext()).getLocation()
         var splitItems = storedLocation.split("+")
         Log.i(TAG, "onViewCreated: lat=====" + splitItems.get(0))
-
-
-        initViews(splitItems.get(0).toDouble(),
-            splitItems.get(1).toDouble(),
-            "minutely,hourly",
-            "en",
-            "standard")
+        initViews(splitItems.get(0).toDouble(), splitItems.get(1).toDouble(), "minutely,hourly", language, "standard")
         observeViewModel()
-        hourlyViewModel.getWeather(splitItems.get(0).toDouble(), splitItems.get(1).toDouble(),
-            "minutely,current,daily,alerts",
-            "en",  "standard")
-            //StreetDateClass(requireContext()).setUnites())
+        hourlyViewModel.getWeather(splitItems.get(0).toDouble(), splitItems.get(1).toDouble(), "minutely,current,daily,alerts", language, "standard")
+        //StreetDateClass(requireContext()).setUnites())
         observeHourly()
 
 
     }
+
 
     private fun checkSettingAndStartLocationUpdate() {
         val locationSettingsRequest =
@@ -129,22 +162,15 @@ class CurrentFragment : Fragment() {
 
     private val lastLocation: Unit
         private get() {
-            //لازم يتأكد ان واخده الpermission قبل ما يجيب الlast location
+            //make sure that i take the permission before get the last location
             if (ActivityCompat.checkSelfPermission(requireContext(),
                     Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                     requireContext(),
                     Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
             ) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
+
                 return
             }
-            // مش هعمل حاجه في ال if
             mfusedLocationProviderclient?.getLastLocation()
                 ?.addOnSuccessListener(OnSuccessListener<Location?> { location ->
                     if (location == null) {
@@ -153,29 +179,14 @@ class CurrentFragment : Fragment() {
                     }
                     Log.i(TAG, "onSuccess: " + location.latitude + "'" + location.latitude)
 
-                    Toast.makeText(requireContext(),
-                        " ${location.latitude} + \"'\" +${location.longitude}",
-                        Toast.LENGTH_SHORT).show()
-                    /////
-
                     val sharedPreferences: SharedPreferences =
-                        requireContext().getSharedPreferences("arf", Context.MODE_PRIVATE)
-
+                        requireContext().getSharedPreferences("weather", Context.MODE_PRIVATE)
                     val editor: SharedPreferences.Editor = sharedPreferences.edit()
-                    editor.putFloat("latt", location.latitude.toFloat())
-                    editor.putFloat("lonn", location.latitude.toFloat())
+                    editor.putString("latCurrent", location.latitude.toString())
+                    editor.putString("lonCurrent", location.latitude.toString())
                     editor.apply()
                     editor.commit()
 
-                    val sharedIdValue = sharedPreferences.getFloat("latt", 0.0f)
-                    val sharedNameValue = sharedPreferences.getFloat("lonn", 0.0f)
-
-
-                    Log.i("lllllc", "fetchLocation: " + "fine lat :" + sharedIdValue)
-                    Log.i("kkkkkk", "fetchLocation: lon:" + sharedNameValue)
-
-
-                    /////
                 })?.addOnFailureListener(OnFailureListener { e ->
                     val errorMessage = e.localizedMessage
                     Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_LONG).show()
@@ -193,21 +204,14 @@ class CurrentFragment : Fragment() {
     }
 
 
-    //start location and stop location (بتوقف ال callback و تشغله  )
+    //start location and stop location
     private fun startLocationUpdates() {
-// هنا برده محتاج يتأكد انه عمل access permision فملناش دعوه بيها
         if (ActivityCompat.checkSelfPermission(requireContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                 requireContext(),
                 Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+
             return
         }
         mfusedLocationProviderclient?.requestLocationUpdates(locationRequest!!,
@@ -221,19 +225,13 @@ class CurrentFragment : Fragment() {
 
     var locationCallback: LocationCallback = object : LocationCallback() {
         // return the update
-        override fun onLocationResult(locationResult: LocationResult) { // ترجع بعد الوقت اللي محدده انها تعمل تعديل فيه
+        override fun onLocationResult(locationResult: LocationResult) { // back after a specified time
             super.onLocationResult(locationResult)
-            //if (locationResult == null) return///#######################################
             val late = locationResult.lastLocation.latitude
             val lng = locationResult.lastLocation.longitude
-//            latitudeLocation= late.toFloat()
-//            latFromLocation=lng
-
-//            latesms = late
-//            langsms = lng
             Log.i(TAG, "onLocationResult: $late,$lng")
             val mylatlang = "latitude= $late \nlangitude= $lng"
-            Toast.makeText(requireContext(), mylatlang, Toast.LENGTH_LONG).show()
+           // Toast.makeText(requireContext(), mylatlang, Toast.LENGTH_LONG).show()
         }
     }
 
@@ -252,15 +250,11 @@ class CurrentFragment : Fragment() {
 
 
     fun observeHourly() {
-
-
         hourlyViewModel.weatherLiveData.observe(viewLifecycleOwner, Observer {
-            Log.i("TAGsssssssssss", "onCreateView: " + it.hourly.size)
             var currentHourListt = it.hourly
             myadapter = CurrentAdapter(currentHourListt, requireContext())
             val layoutManager =
                 LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
-
             binding.recyclerHourCurrent.adapter = myadapter
             binding.recyclerHourCurrent.layoutManager = layoutManager
         })
@@ -268,74 +262,87 @@ class CurrentFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel.weatherLiveData.observe(viewLifecycleOwner, Observer {
-            Log.d("TAG", "observeViewModel: ${it.lat}")
+
+            CurrentDataBase.getInstance(requireContext()).currentDao().deleteAll()
+
             context?.let { context ->
-                var link =
-                    "http://openweathermap.org/img/wn/" + (it.current?.weather?.get(0)?.icon) + "@2x.png"
+                var link = "http://openweathermap.org/img/wn/" + (it.current?.weather?.get(0)?.icon) + "@2x.png"
                 Glide.with(context).load(link).into(binding?.imgIcon!!)
+                currentEntity.currentIcon = link
                 Log.d("TAG", "observeViewModel: ${it.current?.weather?.get(0)?.description}")
             }
-
-            binding?.statusCurrent?.text = it.current?.weather?.get(0)?.description
-            binding?.currentHumedity?.text = "Humidity:" + it.current?.humidity.toString() + "%"
-            binding?.currentClouds?.text = "Clouds:" + it.current?.clouds.toString() + "%"
-            //binding?.currentTempMax?.text = it.current?.sunrise.toString()
-            binding?.currentTempMin?.text = "uvi: " + it.current?.uvi.toString()
-
-            binding?.currentPressure?.text = "pressure:" + it.current?.pressure.toString()
-
             val convertedDate =
                 StreetDateClass(requireContext()).getDateTime((it.current?.dt).toString())
-            binding?.currentDate?.text = convertedDate
             val address = StreetDateClass(requireContext()).getStreetName(it.lat!!, it.lon!!)
-            binding.currentAddress.text = address
+//room
+            currentEntity.currentDescription = it.current?.weather?.get(0)?.description!!
+            currentEntity.currentHumedity = it.current?.humidity!!
+            currentEntity.currentPressure = it.current?.pressure!!
+            currentEntity.currentCloud = it.current?.clouds!!
+            currentEntity.key = it.current?.weather!!.get(0).id!!
+            currentEntity.currentDate = convertedDate!!
+            currentEntity.currentAddress = address
 
             if (StreetDateClass(requireContext()).setTemperature() == 1) {//c
-                            // K - 273.15
-                 val degree= it.current?.temp?.minus(273.15)
-                val number:Double=String.format("%.2f", degree).toDouble()
-
-                binding?.currentDegree?.text = number.toString() + " C"
-
+                // K - 273.15
+                val degree = it.current?.temp?.minus(273.15)
+                binding?.currentDegree?.text = degree?.toInt().toString() + getString(R.string.c)
+                currentEntity.currentTemp = degree?.toInt().toString() + getString(R.string.c)
 
             } else if (StreetDateClass(requireContext()).setTemperature() == 2) {//k
-                val number:Double=String.format("%.2f", it.current?.temp).toDouble()
 
-                binding?.currentDegree?.text = number.toString() + " K"
-
+                binding?.currentDegree?.text = it.current?.temp?.toInt().toString() + getString(R.string.k)
+                currentEntity.currentTemp = it.current?.temp?.toInt().toString() + getString(R.string.k)
 
             } else if (StreetDateClass(requireContext()).setTemperature() == 3) {//f
-
                 //°F = (K − 273.15) × 9/5 + 32
-
-                    val degree=(((it.current?.temp)?.minus(273.15))?.times(9/3)?.plus(32))
-                val number:Double=String.format("%.2f", degree).toDouble()
-
-                binding?.currentDegree?.text = number.toString() + " F"
-
-
+                val degree = (((it.current?.temp)?.minus(273.15))?.times(9 / 3)?.plus(32))
+                binding?.currentDegree?.text = degree?.toInt().toString() + getString(R.string.f)
+                currentEntity.currentTemp = degree?.toInt().toString() + getString(R.string.f)
             }
 
-//wind speed
+            //wind speed
             if (StreetDateClass(requireContext()).setWindSpeed() == 1) {//c
                 // mile= sec*2.236936
-                val number:Double=String.format("%.2f", it.current?.windSpeed).toDouble()
-                binding?.currentWind?.text = "wind:" +number.toString() + " m/s"
+                binding?.currentWind?.text = getString(R.string.wind_speed) + " : " + it.current?.windSpeed?.toInt().toString() + getString(R.string.meter_sec)
+                currentEntity.currentWind = getString(R.string.wind_speed) + " : " + it.current?.windSpeed?.toInt().toString() + getString(R.string.meter_sec)
 
             } else if (StreetDateClass(requireContext()).setWindSpeed() == 2) {//k
 
-                val degree= it.current?.windSpeed?.times(2.236936)
-                val number:Double=String.format("%.2f",degree).toDouble()
-
-
-                binding?.currentWind?.text = "wind:" + number.toString() + " m/h"
-
-
+                val degree = it.current?.windSpeed?.times(2.236936)
+                binding?.currentWind?.text = getString(R.string.wind_speed) + " : " + degree?.toInt().toString() + getString(
+                        R.string.mil_hour)
+                currentEntity.currentWind = getString(R.string.wind_speed) + " : " + degree?.toInt().toString() + getString(
+                        R.string.mil_hour)
             }
+
+            CurrentDataBase.getInstance(requireContext()).currentDao().addLocation(currentEntity)
+            //  end room
+            binding?.statusCurrent?.text = it.current?.weather?.get(0)?.description
+            binding?.currentHumedity?.text = getString(R.string.humidity) + " : " + it.current?.humidity.toString() + "%"
+            binding?.currentClouds?.text = getString(R.string.clouds) + " : " + it.current?.clouds.toString() + "%"
+            binding?.currentTempMin?.text = getString(R.string.uvi) + ":" + it.current?.uvi.toString()
+            binding?.currentPressure?.text = getString(R.string.pressure) + " : " + it.current?.pressure.toString()
+            binding?.currentDate?.text = convertedDate
+            binding.currentAddress.text = address
 
         })
     }
 
+
+    fun initoflineData(currentEntity: CurrentEntity) {
+        var currentArray = CurrentDataBase.getInstance(requireContext()).currentDao().getCurrentLocation() as ArrayList<CurrentEntity>
+
+        binding.currentWind.text = currentArray.get(0).currentWind
+        binding.currentClouds.text = getString(R.string.clouds) + " : " + currentArray.get(0).currentCloud.toString()
+        binding.currentPressure.text = getString(R.string.pressure) + " : " + currentArray.get(0).currentPressure.toString()
+        binding.currentHumedity.text = getString(R.string.humidity) + " : " + currentArray.get(0).currentHumedity.toString()
+        binding.currentDegree.text = currentArray.get(0).currentTemp
+        binding.currentDate.text = currentArray.get(0).currentDate
+        binding.currentAddress.text = currentArray.get(0).currentAddress
+        binding.statusCurrent.text = currentArray.get(0).currentDescription
+        Glide.with(this).load(currentArray.get(0).currentIcon).into(binding?.imgIcon!!)
+    }
 
     private fun initViews(lat: Double, lon: Double, exclude: String, lang: String, unites: String) {
         viewModel.getWeather(lat,

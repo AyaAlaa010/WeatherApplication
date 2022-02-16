@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_current_hours.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\item_current_hours.xml"
+    },
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_favourite.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\fragment_favourite.xml"
+    },
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_next.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\fragment_next.xml"
+    },
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_set.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\activity_set.xml"
+    },
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_next.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\item_next.xml"
+    },
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_favourite.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\item_favourite.xml"
+    },
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_current.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\fragment_current.xml"
+    },
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\header_nav.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\header_nav.xml"
+    },
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_settings.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\activity_settings.xml"
+    },
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_map_test.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\activity_map_test.xml"
+    },
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\favourite_details.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\favourite_details.xml"
+    },
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\test_setting.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\test_setting.xml"
+    },
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_favourite_location_details.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\activity_favourite_location_details.xml"
+    },
+    {
+        "merged": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_splash_screen.xml",
+        "source": "D:\\iti program\\courses\\Android Kotlin\\Backup\\18 correct\\WeatherApplication\\app\\src\\main\\res\\layout\\activity_splash_screen.xml"
+    }
+]

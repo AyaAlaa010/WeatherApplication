@@ -1,0 +1,213 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.weatherapplication"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml
+10
+11    <!--
+12         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+13         Google Maps Android API v2, but you must specify either coarse or fine
+14         location permissions for the "MyLocation" functionality.
+15    -->
+16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+16-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:10:5-79
+16-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:10:22-76
+17    <uses-permission android:name="android.permission.INTERNET" />
+17-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:11:5-67
+17-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:11:22-64
+18    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+18-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:12:5-81
+18-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:12:22-78
+19    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Include required permissions for Google Maps API to run. -->
+19-->[com.google.android.libraries.places:places:1.1.0] C:\Users\USER\.gradle\caches\transforms-3\35d76cc992288804ae3b28c4cea92120\transformed\jetified-places-1.1.0\AndroidManifest.xml:10:5-76
+19-->[com.google.android.libraries.places:places:1.1.0] C:\Users\USER\.gradle\caches\transforms-3\35d76cc992288804ae3b28c4cea92120\transformed\jetified-places-1.1.0\AndroidManifest.xml:10:22-73
+20    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+20-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-3\7ff98afb07ce405a3d22b439bea8233c\transformed\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
+20-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-3\7ff98afb07ce405a3d22b439bea8233c\transformed\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
+21
+22    <uses-feature
+22-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-3\7ff98afb07ce405a3d22b439bea8233c\transformed\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+23        android:glEsVersion="0x00020000"
+23-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-3\7ff98afb07ce405a3d22b439bea8233c\transformed\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+24        android:required="true" />
+24-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-3\7ff98afb07ce405a3d22b439bea8233c\transformed\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+25
+26    <application
+26-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:14:5-63:19
+27        android:allowBackup="true"
+27-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:15:9-35
+28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+28-->[androidx.core:core:1.7.0] C:\Users\USER\.gradle\caches\transforms-3\2f6287d158444c93a852ba9409089ba1\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+29        android:debuggable="true"
+30        android:extractNativeLibs="false"
+31        android:icon="@mipmap/ic_launcher"
+31-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:16:9-43
+32        android:label="@string/app_name"
+32-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:17:9-41
+33        android:roundIcon="@mipmap/ic_launcher_round"
+33-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:18:9-54
+34        android:supportsRtl="true"
+34-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:19:9-35
+35        android:testOnly="true"
+36        android:theme="@style/Theme.WeatherApplication"
+36-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:20:9-56
+37        android:usesCleartextTraffic="true" >
+37-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:21:9-44
+38
+39        <!--
+40             The API key for Google Maps-based APIs is defined as a string resource.
+41             (See the file "res/values/google_maps_api.xml").
+42             Note that the API key is linked to the encryption key used to sign the APK.
+43             You need a different API key for each encryption key, including the release key that is used to
+44             sign the APK for publishing.
+45             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+46        -->
+47        <meta-data
+47-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:31:9-33:55
+48            android:name="com.google.android.geo.API_KEY"
+48-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:32:13-58
+49            android:value="@string/google_maps_key" />
+49-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:33:13-52
+50
+51        <activity
+51-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:35:9-38:69
+52            android:name="com.example.weatherapplication.ui.maps.FavouriteMaps"
+52-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:36:13-50
+53            android:exported="false"
+53-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:37:13-37
+54            android:label="@string/title_activity_favourite_maps" />
+54-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:38:13-66
+55        <activity
+55-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:39:9-41:40
+56            android:name="com.example.weatherapplication.ui.favourit.FavouriteLocationDetails"
+56-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:40:13-65
+57            android:exported="false" />
+57-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:41:13-37
+58        <activity
+58-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:42:9-46:71
+59            android:name="com.example.weatherapplication.ui.maps.MapActivity"
+59-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:43:13-48
+60            android:exported="false"
+60-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:44:13-37
+61            android:theme="@style/Theme.WeatherApplicationSplash"
+61-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:45:13-66
+62            android:value="AIzaSyCNUBkaNtp5arseztUfKPqLICaTUMFO7rE" />
+62-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:46:13-68
+63        <activity
+63-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:47:9-49:40
+64            android:name="com.example.weatherapplication.ui.mainui.Settings"
+64-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:48:13-47
+65            android:exported="false" />
+65-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:49:13-37
+66        <activity
+66-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:50:9-52:40
+67            android:name="com.example.weatherapplication.ui.mainui.MainActivity"
+67-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:51:13-51
+68            android:exported="false" />
+68-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:52:13-37
+69        <activity
+69-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:53:9-62:20
+70            android:name="com.example.weatherapplication.ui.mainui.SplashScreenActivity"
+70-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:54:13-59
+71            android:exported="true"
+71-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:55:13-36
+72            android:theme="@style/Theme.WeatherApplicationSplash" >
+72-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:56:13-66
+73            <intent-filter>
+73-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:57:13-61:29
+74                <action android:name="android.intent.action.MAIN" />
+74-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:58:17-69
+74-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:58:25-66
+75
+76                <category android:name="android.intent.category.LAUNCHER" />
+76-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:60:17-77
+76-->D:\iti program\courses\Android Kotlin\Backup\18 correct\WeatherApplication\app\src\main\AndroidManifest.xml:60:27-74
+77            </intent-filter>
+78        </activity>
+79        <activity
+79-->[pub.devrel:easypermissions:3.0.0] C:\Users\USER\.gradle\caches\transforms-3\1ac7472ebb1c775b773269f4c68536db\transformed\jetified-easypermissions-3.0.0\AndroidManifest.xml:12:9-16:66
+80            android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity"
+80-->[pub.devrel:easypermissions:3.0.0] C:\Users\USER\.gradle\caches\transforms-3\1ac7472ebb1c775b773269f4c68536db\transformed\jetified-easypermissions-3.0.0\AndroidManifest.xml:13:13-86
+81            android:exported="false"
+81-->[pub.devrel:easypermissions:3.0.0] C:\Users\USER\.gradle\caches\transforms-3\1ac7472ebb1c775b773269f4c68536db\transformed\jetified-easypermissions-3.0.0\AndroidManifest.xml:14:13-37
+82            android:label=""
+82-->[pub.devrel:easypermissions:3.0.0] C:\Users\USER\.gradle\caches\transforms-3\1ac7472ebb1c775b773269f4c68536db\transformed\jetified-easypermissions-3.0.0\AndroidManifest.xml:15:13-29
+83            android:theme="@style/EasyPermissions.Transparent" /> <!-- Autocomplete -->
+83-->[pub.devrel:easypermissions:3.0.0] C:\Users\USER\.gradle\caches\transforms-3\1ac7472ebb1c775b773269f4c68536db\transformed\jetified-easypermissions-3.0.0\AndroidManifest.xml:16:13-63
+84        <activity
+84-->[com.google.android.libraries.places:places:1.1.0] C:\Users\USER\.gradle\caches\transforms-3\35d76cc992288804ae3b28c4cea92120\transformed\jetified-places-1.1.0\AndroidManifest.xml:16:9-23:20
+85            android:name="com.google.android.libraries.places.widget.AutocompleteActivity"
+85-->[com.google.android.libraries.places:places:1.1.0] C:\Users\USER\.gradle\caches\transforms-3\35d76cc992288804ae3b28c4cea92120\transformed\jetified-places-1.1.0\AndroidManifest.xml:17:13-91
+86            android:exported="false"
+86-->[com.google.android.libraries.places:places:1.1.0] C:\Users\USER\.gradle\caches\transforms-3\35d76cc992288804ae3b28c4cea92120\transformed\jetified-places-1.1.0\AndroidManifest.xml:18:13-37
+87            android:hardwareAccelerated="true"
+87-->[com.google.android.libraries.places:places:1.1.0] C:\Users\USER\.gradle\caches\transforms-3\35d76cc992288804ae3b28c4cea92120\transformed\jetified-places-1.1.0\AndroidManifest.xml:19:13-47
+88            android:label="@string/places_autocomplete_label"
+88-->[com.google.android.libraries.places:places:1.1.0] C:\Users\USER\.gradle\caches\transforms-3\35d76cc992288804ae3b28c4cea92120\transformed\jetified-places-1.1.0\AndroidManifest.xml:20:13-62
+89            android:theme="@style/PlacesAutocompleteThemeOverlay"
+89-->[com.google.android.libraries.places:places:1.1.0] C:\Users\USER\.gradle\caches\transforms-3\35d76cc992288804ae3b28c4cea92120\transformed\jetified-places-1.1.0\AndroidManifest.xml:21:13-66
+90            android:windowSoftInputMode="stateAlwaysVisible|adjustPan" >
+90-->[com.google.android.libraries.places:places:1.1.0] C:\Users\USER\.gradle\caches\transforms-3\35d76cc992288804ae3b28c4cea92120\transformed\jetified-places-1.1.0\AndroidManifest.xml:22:13-71
+91        </activity> <!-- Needs to be explicitly declared on P+ -->
+92        <uses-library
+92-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-3\7ff98afb07ce405a3d22b439bea8233c\transformed\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+93            android:name="org.apache.http.legacy"
+93-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-3\7ff98afb07ce405a3d22b439bea8233c\transformed\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+94            android:required="false" />
+94-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\USER\.gradle\caches\transforms-3\7ff98afb07ce405a3d22b439bea8233c\transformed\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+95
+96        <service
+96-->[androidx.room:room-runtime:2.3.0] C:\Users\USER\.gradle\caches\transforms-3\a5222f1192b9c0da9f4e0200719f2c1c\transformed\room-runtime-2.3.0\AndroidManifest.xml:25:9-28:40
+97            android:name="androidx.room.MultiInstanceInvalidationService"
+97-->[androidx.room:room-runtime:2.3.0] C:\Users\USER\.gradle\caches\transforms-3\a5222f1192b9c0da9f4e0200719f2c1c\transformed\room-runtime-2.3.0\AndroidManifest.xml:26:13-74
+98            android:directBootAware="true"
+98-->[androidx.room:room-runtime:2.3.0] C:\Users\USER\.gradle\caches\transforms-3\a5222f1192b9c0da9f4e0200719f2c1c\transformed\room-runtime-2.3.0\AndroidManifest.xml:27:13-43
+99            android:exported="false" />
+99-->[androidx.room:room-runtime:2.3.0] C:\Users\USER\.gradle\caches\transforms-3\a5222f1192b9c0da9f4e0200719f2c1c\transformed\room-runtime-2.3.0\AndroidManifest.xml:28:13-37
+100
+101        <activity
+101-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\USER\.gradle\caches\transforms-3\9ec386a6993ce36523ab0026ecd4d5bd\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:23:9-26:75
+102            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+102-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\USER\.gradle\caches\transforms-3\9ec386a6993ce36523ab0026ecd4d5bd\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:24:13-79
+103            android:exported="false"
+103-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\USER\.gradle\caches\transforms-3\9ec386a6993ce36523ab0026ecd4d5bd\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:25:13-37
+104            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+104-->[com.google.android.gms:play-services-base:17.5.0] C:\Users\USER\.gradle\caches\transforms-3\9ec386a6993ce36523ab0026ecd4d5bd\transformed\jetified-play-services-base-17.5.0\AndroidManifest.xml:26:13-72
+105
+106        <meta-data
+106-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\USER\.gradle\caches\transforms-3\47cd8462d51a3ae04f9e842dc4088b59\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:23:9-25:69
+107            android:name="com.google.android.gms.version"
+107-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\USER\.gradle\caches\transforms-3\47cd8462d51a3ae04f9e842dc4088b59\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:24:13-58
+108            android:value="@integer/google_play_services_version" />
+108-->[com.google.android.gms:play-services-basement:17.5.0] C:\Users\USER\.gradle\caches\transforms-3\47cd8462d51a3ae04f9e842dc4088b59\transformed\jetified-play-services-basement-17.5.0\AndroidManifest.xml:25:13-66
+109
+110        <provider
+110-->[androidx.emoji2:emoji2:1.0.0] C:\Users\USER\.gradle\caches\transforms-3\9844944d746d42208d2983a78d027650\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+111            android:name="androidx.startup.InitializationProvider"
+111-->[androidx.emoji2:emoji2:1.0.0] C:\Users\USER\.gradle\caches\transforms-3\9844944d746d42208d2983a78d027650\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+112            android:authorities="com.example.weatherapplication.androidx-startup"
+112-->[androidx.emoji2:emoji2:1.0.0] C:\Users\USER\.gradle\caches\transforms-3\9844944d746d42208d2983a78d027650\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+113            android:exported="false" >
+113-->[androidx.emoji2:emoji2:1.0.0] C:\Users\USER\.gradle\caches\transforms-3\9844944d746d42208d2983a78d027650\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+114            <meta-data
+114-->[androidx.emoji2:emoji2:1.0.0] C:\Users\USER\.gradle\caches\transforms-3\9844944d746d42208d2983a78d027650\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+115                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+115-->[androidx.emoji2:emoji2:1.0.0] C:\Users\USER\.gradle\caches\transforms-3\9844944d746d42208d2983a78d027650\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+116                android:value="androidx.startup" />
+116-->[androidx.emoji2:emoji2:1.0.0] C:\Users\USER\.gradle\caches\transforms-3\9844944d746d42208d2983a78d027650\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+117            <meta-data
+117-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\USER\.gradle\caches\transforms-3\6825503d2872641ce0c84a560a6bbd95\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+118                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+118-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\USER\.gradle\caches\transforms-3\6825503d2872641ce0c84a560a6bbd95\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+119                android:value="androidx.startup" />
+119-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\USER\.gradle\caches\transforms-3\6825503d2872641ce0c84a560a6bbd95\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+120        </provider>
+121    </application>
+122
+123</manifest>
